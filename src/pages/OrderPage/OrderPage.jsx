@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import OrderList from "../../components/OrderList/OrderList";
 import { OrderContext } from "../../App";
 import OrderForm from "../../components/OrderForm/OrderForm";
@@ -15,6 +15,16 @@ const countTotalPrice = (data) => {
 const OrderPage = () => {
   const { order, setOrder } = useContext(OrderContext);
   const [totalPrice, setTotalPrice] = useState(() => countTotalPrice(order));
+
+  useEffect(() => {
+    const currentOrder = JSON.parse(localStorage.getItem("currentOrder"));
+    console.log(currentOrder);
+    if (!currentOrder) {
+      localStorage.setItem("currentOrder", JSON.stringify(order));
+      return;
+    }
+    // setOrder(currentOrder);
+  }, [order, setOrder]);
 
   const getTotalPrice = (data) => {
     const total = countTotalPrice(data);

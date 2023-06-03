@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = import.meta.env.VITE_REACT_APP_API_URL;
+const url = import.meta.env.VITE_REACT_APP_API_SHOPS_URL;
 
 const products = axios.create({
   baseURL: url,

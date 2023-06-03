@@ -1,15 +1,13 @@
 import { Formik, ErrorMessage } from "formik";
 import { object, string, number } from "yup";
+import { PropTypes } from "prop-types";
 import {
   AddContactForm,
   FormInput,
   FormLabel,
-  //   CheckboxContainer,
   LabelTitle,
-  //   CheckboxLabel,
-  //   CheckboxLabelNoMarginRight,
-  //   Container,
 } from "./OrderForm.styled";
+import { sendOrder } from "../../../services/sendOrder";
 
 const OrderForm = ({ order, totalPrice }) => {
   const formInitialValues = {
@@ -25,13 +23,13 @@ const OrderForm = ({ order, totalPrice }) => {
     phone: number().required(),
   });
 
-  const submitOrder = (values, { resetForm }) => {
+  const submitOrder = async (values, { resetForm }) => {
     const completedOrder = {
       user: { ...values },
       order: { ...order },
       totalPrice,
     };
-    console.log(completedOrder);
+    sendOrder(completedOrder);
     resetForm();
   };
 
@@ -64,31 +62,13 @@ const OrderForm = ({ order, totalPrice }) => {
           <ErrorMessage name="address" />
         </FormLabel>
 
-        {/* <CheckboxContainer>
-          <LabelTitle>Cathegory</LabelTitle>
-          <Container>
-            <CheckboxLabel>
-              <FormInput type="checkbox" name="cathegory" value="Friends" />
-              Friends
-            </CheckboxLabel>
-            <CheckboxLabelNoMarginRight>
-              <FormInput type="checkbox" name="cathegory" value="Family" />
-              Family
-            </CheckboxLabelNoMarginRight>
-            <CheckboxLabel>
-              <FormInput type="checkbox" name="cathegory" value="Vip" />
-              Vip
-            </CheckboxLabel>
-            <CheckboxLabelNoMarginRight>
-              <FormInput type="checkbox" name="cathegory" value="Work" />
-              Work
-            </CheckboxLabelNoMarginRight>
-          </Container>
-        </CheckboxContainer> */}
         <button type="submit">Submit</button>
       </AddContactForm>
     </Formik>
   );
 };
-
+OrderForm.propTypes = {
+  order: PropTypes.array.isRequired,
+  totalPrice: PropTypes.number.isRequired,
+};
 export default OrderForm;

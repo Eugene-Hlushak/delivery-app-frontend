@@ -6,7 +6,7 @@ const ProductListItem = ({ product }) => {
   const { order, setOrder } = useContext(OrderContext);
   console.log(order);
   const addToCart = () => {
-    setOrder((prev) => [...prev, product]);
+    setOrder((prev) => [...prev, { ...product, quantity: 1 }]);
   };
   return (
     <li>

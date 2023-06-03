@@ -6,9 +6,7 @@ const products = axios.create({
 });
 
 export const getProductsByShop = async (id) => {
-  console.log(url);
-
   const { data } = await products.get(`/${id}/products`);
-  console.log(data);
+
   return data;
 };

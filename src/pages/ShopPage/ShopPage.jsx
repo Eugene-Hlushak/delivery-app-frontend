@@ -14,7 +14,6 @@ const ShopPage = () => {
     const shops = async () => {
       try {
         const result = await getShops();
-        console.log(result);
         setShops(result);
       } catch (error) {
         setError(error);

@@ -3,8 +3,7 @@ import { OrderContext } from "../../App";
 import { useContext } from "react";
 import { ProductCard } from "./ProductsList.styled";
 const ProductListItem = ({ product }) => {
-  const { order, setOrder } = useContext(OrderContext);
-  console.log(order);
+  const { setOrder } = useContext(OrderContext);
   const addToCart = () => {
     setOrder((prev) => [...prev, { ...product, quantity: 1 }]);
   };

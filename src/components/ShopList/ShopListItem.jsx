@@ -22,7 +22,7 @@ const ShopListItem = ({ shop, setProducts }) => {
 };
 
 ShopListItem.propTypes = {
-  shop: PropTypes.func.isRequired,
+  shop: PropTypes.object.isRequired,
   setProducts: PropTypes.func.isRequired,
 };
 

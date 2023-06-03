@@ -1,3 +1,4 @@
+import { PropTypes } from "prop-types";
 import OrderListItem from "./OrderListItem";
 const OrderList = ({ order, setOrder, getTotalPrice }) => {
   const quantityHandler = (e, id) => {
@@ -32,5 +33,9 @@ const OrderList = ({ order, setOrder, getTotalPrice }) => {
     </ul>
   );
 };
-
+OrderList.propTypes = {
+  order: PropTypes.array.isRequired,
+  setOrder: PropTypes.func.isRequired,
+  getTotalPrice: PropTypes.func.isRequired,
+};
 export default OrderList;

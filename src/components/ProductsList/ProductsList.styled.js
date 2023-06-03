@@ -6,3 +6,9 @@ export const ProductsContainer = styled.div`
   border: 1px solid white;
   border-radius: 10px;
 `;
+
+export const ProductCard = styled.div`
+  width: 250px;
+  height: 250px;
+  border: 1px solid white;
+`;

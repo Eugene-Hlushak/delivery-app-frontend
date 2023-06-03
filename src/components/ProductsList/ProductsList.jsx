@@ -1,18 +1,20 @@
 import { ProductsContainer } from "./ProductsList.styled";
+import { PropTypes } from "prop-types";
+import ProductListItem from "./ProductsListItem";
 
-const ProductsList = () => {
+const ProductsList = ({ products }) => {
   return (
     <ProductsContainer>
-      <h2>Products of McDonnalds</h2>
+      <h2>Products</h2>
       <ul>
-        <li>Cheeseburger</li>
-        <li>Chicken McNuggets</li>
-        <li>CocaCola S</li>
-        <li>Double Burger</li>
-        <li>Happy Meal</li>
+        {products.map((product) => (
+          <ProductListItem key={product._id} product={product} />
+        ))}
       </ul>
     </ProductsContainer>
   );
 };
-
+ProductsList.propTypes = {
+  products: PropTypes.array.isRequired,
+};
 export default ProductsList;

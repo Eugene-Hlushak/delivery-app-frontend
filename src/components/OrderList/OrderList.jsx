@@ -1,25 +1,22 @@
-import { OrderContext } from "../../App";
 import OrderListItem from "./OrderListItem";
-import { useContext, useCallback } from "react";
-const OrderList = () => {
-  const { order, setOrder } = useContext(OrderContext);
+const OrderList = ({ order, setOrder, getTotalPrice }) => {
+  const quantityHandler = (e, id) => {
+    const quantity = e.target.value;
 
-  const quantityHandler = useCallback(
-    (e, id) => {
-      const quantity = e.target.value;
-      if (quantity < 1) return;
-      const newOrder = order.reduce((acc, item) => {
-        item._id === id ? acc.push({ ...item, quantity }) : acc.push(item);
-        return acc;
-      }, []);
-      setOrder(newOrder);
-    },
-    [order, setOrder]
-  );
+    if (quantity < 1) return;
+    const newOrder = order.reduce((acc, item) => {
+      item._id === id ? acc.push({ ...item, quantity }) : acc.push(item);
+      return acc;
+    }, []);
+
+    setOrder(newOrder);
+    getTotalPrice(newOrder);
+  };
 
   const deleteProduct = (id) => {
     const correctOrder = order.filter(({ _id }) => _id !== id);
     setOrder(correctOrder);
+    getTotalPrice(correctOrder);
   };
 
   return (
@@ -35,4 +32,5 @@ const OrderList = () => {
     </ul>
   );
 };
+
 export default OrderList;

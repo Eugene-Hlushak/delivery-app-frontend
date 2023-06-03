@@ -1,5 +1,10 @@
 const OrderPage = () => {
-  return <h2>Here is your order</h2>;
+  return (
+    <div>
+      <h2>Here is your order</h2>
+      <div></div>
+    </div>
+  );
 };
 
 export default OrderPage;

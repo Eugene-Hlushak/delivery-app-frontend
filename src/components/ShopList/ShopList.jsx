@@ -15,7 +15,7 @@ const ShopList = ({ shops, setProducts }) => {
   );
 };
 ShopList.propTypes = {
-  shops: PropTypes.arrayOf(PropTypes.object).isRequired,
+  shops: PropTypes.array.isRequired,
   setProducts: PropTypes.func.isRequired,
 };
 export default ShopList;

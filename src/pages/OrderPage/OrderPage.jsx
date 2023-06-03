@@ -11,20 +11,21 @@ const countTotalPrice = (data) => {
   }, 0);
   return total;
 };
+const currentOrder = JSON.parse(localStorage.getItem("currentOrder"));
 
 const OrderPage = () => {
   const { order, setOrder } = useContext(OrderContext);
   const [totalPrice, setTotalPrice] = useState(() => countTotalPrice(order));
 
   useEffect(() => {
-    const currentOrder = JSON.parse(localStorage.getItem("currentOrder"));
-    console.log(currentOrder);
-    if (!currentOrder) {
-      localStorage.setItem("currentOrder", JSON.stringify(order));
-      return;
+    if (currentOrder) {
+      setOrder(currentOrder);
     }
-    // setOrder(currentOrder);
-  }, [order, setOrder]);
+  }, [setOrder]);
+
+  useEffect(() => {
+    localStorage.setItem("currentOrder", JSON.stringify(order));
+  }, [order]);
 
   const getTotalPrice = (data) => {
     const total = countTotalPrice(data);

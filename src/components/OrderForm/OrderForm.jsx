@@ -1,4 +1,5 @@
 import { Formik, ErrorMessage } from "formik";
+
 import { object, string, number } from "yup";
 import { PropTypes } from "prop-types";
 import {
@@ -9,7 +10,7 @@ import {
 } from "./OrderForm.styled";
 import { sendOrder } from "../../../services/sendOrder";
 
-const OrderForm = ({ order, totalPrice }) => {
+const OrderForm = ({ order, totalPrice, setOrder }) => {
   const formInitialValues = {
     name: "",
     email: "",
@@ -30,6 +31,7 @@ const OrderForm = ({ order, totalPrice }) => {
       totalPrice,
     };
     sendOrder(completedOrder);
+    setOrder([]);
     resetForm();
   };
 
@@ -70,5 +72,6 @@ const OrderForm = ({ order, totalPrice }) => {
 OrderForm.propTypes = {
   order: PropTypes.array.isRequired,
   totalPrice: PropTypes.number.isRequired,
+  setOrder: PropTypes.func.isRequired,
 };
 export default OrderForm;

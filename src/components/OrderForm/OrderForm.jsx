@@ -26,10 +26,11 @@ const OrderForm = ({ order, totalPrice, setOrder }) => {
 
   const submitOrder = async (values, { resetForm }) => {
     const completedOrder = {
-      user: { ...values },
+      customer: { ...values },
       order: { ...order },
       totalPrice,
     };
+
     sendOrder(completedOrder);
     setOrder([]);
     resetForm();

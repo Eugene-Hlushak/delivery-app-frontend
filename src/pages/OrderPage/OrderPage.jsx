@@ -18,13 +18,15 @@ const OrderPage = () => {
   const [totalPrice, setTotalPrice] = useState(() => countTotalPrice(order));
 
   useEffect(() => {
-    if (currentOrder) {
+    if (currentOrder.length > 0) {
       setOrder(currentOrder);
     }
   }, [setOrder]);
 
   useEffect(() => {
     localStorage.setItem("currentOrder", JSON.stringify(order));
+    const price = countTotalPrice(order);
+    setTotalPrice(price);
   }, [order]);
 
   const getTotalPrice = (data) => {
@@ -35,7 +37,7 @@ const OrderPage = () => {
   return (
     <div>
       <h2>Here is your order</h2>
-      <OrderForm order={order} totalPrice={totalPrice} />
+      <OrderForm order={order} totalPrice={totalPrice} setOrder={setOrder} />
       <OrderList
         order={order}
         setOrder={setOrder}

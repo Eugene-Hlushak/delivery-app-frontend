@@ -8,7 +8,7 @@ export const OrderContext = createContext();
 
 function App() {
   const [order, setOrder] = useState([]);
-
+  // console.log(order);
   return (
     <OrderContext.Provider value={{ order, setOrder }}>
       <Routes>

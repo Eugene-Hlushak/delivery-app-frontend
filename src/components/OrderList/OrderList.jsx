@@ -18,6 +18,7 @@ const OrderList = ({ order, setOrder, getTotalPrice }) => {
     const correctOrder = order.filter(({ _id }) => _id !== id);
     setOrder(correctOrder);
     getTotalPrice(correctOrder);
+    console.log("order list --> ", correctOrder);
   };
 
   return (

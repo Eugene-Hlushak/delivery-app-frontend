@@ -2,11 +2,14 @@ import { PropTypes } from "prop-types";
 import { OrderContext } from "../../App";
 import { useContext } from "react";
 import { ProductCard } from "./ProductsList.styled";
+
 const ProductListItem = ({ product }) => {
   const { setOrder } = useContext(OrderContext);
   const addToCart = () => {
-    setOrder((prev) => [...prev, { ...product, quantity: 1 }]);
+    const newOrderItem = { ...product, quantity: 1 };
+    setOrder((prev) => [...prev, { ...newOrderItem }]);
   };
+
   return (
     <li>
       <ProductCard>
@@ -23,6 +26,5 @@ const ProductListItem = ({ product }) => {
 
 ProductListItem.propTypes = {
   product: PropTypes.object.isRequired,
-  setOrder: PropTypes.func.isRequired,
 };
 export default ProductListItem;

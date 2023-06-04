@@ -1,11 +1,12 @@
-import { useState, useEffect, createContext, useContext } from "react";
-
+import { useState, useEffect, useContext } from "react";
+import { OrderContext } from "../../App";
 import ShopList from "../../components/ShopList/ShopList";
 import ProductsList from "../../components/ProductsList/ProductsList";
 import { PageContainer } from "./ShopPage.styled";
 import { getShops } from "../../../services/getShops";
 
 const ShopPage = () => {
+  const { order, setOrder } = useContext(OrderContext);
   const [shops, setShops] = useState([]);
   const [error, setError] = useState(null);
   const [products, setProducts] = useState([]);
@@ -22,12 +23,17 @@ const ShopPage = () => {
 
     shops();
   }, []);
+
+  const resetCart = () => {
+    setOrder([]);
+  };
   return (
     <div>
       <h1>Shop</h1>
       <PageContainer>
+        <button onClick={() => setOrder([])}>Reset cart</button>
         <ShopList shops={shops} setProducts={setProducts} />
-        <ProductsList products={products} />
+        <ProductsList products={products} setOrder={setOrder} order={order} />
       </PageContainer>
     </div>
   );

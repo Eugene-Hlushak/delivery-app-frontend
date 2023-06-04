@@ -1,11 +1,19 @@
 import { PropTypes } from "prop-types";
-import { OrderContext } from "../../App";
-import { useContext } from "react";
+import { useState } from "react";
 import { ProductCard } from "./ProductsList.styled";
 
-const ProductListItem = ({ product }) => {
-  const { setOrder } = useContext(OrderContext);
-  const addToCart = () => {
+const ProductListItem = ({ product, setOrder, order }) => {
+  const checkCart = (id) => {
+    console.log(order);
+    const check = order.find((item) => item._id === id);
+    return check;
+  };
+  const addToCart = (id) => {
+    const check = checkCart(id);
+    console.log("check", check);
+    if (check) {
+      return;
+    }
     const newOrderItem = { ...product, quantity: 1 };
     setOrder((prev) => [...prev, { ...newOrderItem }]);
   };
@@ -13,11 +21,11 @@ const ProductListItem = ({ product }) => {
   return (
     <li>
       <ProductCard>
-        <img src="" alt="FOOD" />
+        <img src="" alt={product.name} />
         <div>
           <p>{product.name}</p>
           <p>{product.price} uah</p>
-          <button onClick={addToCart}>Add to cart</button>
+          <button onClick={() => addToCart(product._id)}>Add to cart</button>
         </div>
       </ProductCard>
     </li>
@@ -26,5 +34,7 @@ const ProductListItem = ({ product }) => {
 
 ProductListItem.propTypes = {
   product: PropTypes.object.isRequired,
+  setOrder: PropTypes.func.isRequired,
+  order: PropTypes.object.isRequired,
 };
 export default ProductListItem;

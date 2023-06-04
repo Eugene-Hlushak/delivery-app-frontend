@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import OrderList from "../../components/OrderList/OrderList";
 import { OrderContext } from "../../App";
 import OrderForm from "../../components/OrderForm/OrderForm";
+import { PageContainer, Container, TotalPrice } from "./OrderPage.styled";
 
 const countTotalPrice = (data) => {
   const total = data.reduce((acc, item) => {
@@ -36,16 +37,17 @@ const OrderPage = () => {
   };
 
   return (
-    <div>
-      <h2>Here is your order</h2>
-      <OrderForm order={order} totalPrice={totalPrice} setOrder={setOrder} />
-      <OrderList
-        order={order}
-        setOrder={setOrder}
-        getTotalPrice={getTotalPrice}
-      />
-      <p>{totalPrice}</p>
-    </div>
+    <PageContainer>
+      <Container>
+        <OrderForm order={order} totalPrice={totalPrice} setOrder={setOrder} />
+        <OrderList
+          order={order}
+          setOrder={setOrder}
+          getTotalPrice={getTotalPrice}
+        />
+      </Container>
+      <TotalPrice>Total Price: {totalPrice}</TotalPrice>
+    </PageContainer>
   );
 };
 

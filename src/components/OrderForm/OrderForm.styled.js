@@ -1,48 +1,54 @@
 import { Form, Field } from "formik";
 import styled from "styled-components";
 
-export const AddContactForm = styled(Form)`
-  width: 300px;
-  padding: 10px;
-
-  border: 1px solid black;
+export const CustomerForm = styled(Form)`
+  position: relative;
+  width: 400px;
   margin-bottom: 10px;
+  margin-right: 15px;
+  padding: 20px;
+
+  border: 1px solid white;
 `;
 
 export const FormLabel = styled.label`
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-`;
-
-export const CheckboxContainer = styled.div`
-  display: flex;
-  align-items: baseline;
-`;
-export const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-export const CheckboxLabel = styled(FormLabel)`
-  display: flex;
-  width: 80px;
-  font-weight: 400;
-  font-size: 18px;
-  margin-right: 10px;
-`;
-
-export const CheckboxLabelNoMarginRight = styled(CheckboxLabel)`
-  margin-right: 0;
+  margin-bottom: 20px;
 `;
 
 export const LabelTitle = styled.span`
   width: 100px;
   margin-right: 10px;
+  margin-bottom: 15px;
   font-weight: 500;
   font-size: 20px;
 `;
 
 export const FormInput = styled(Field)`
   display: block;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+`;
+
+export const Submit = styled.button`
+  /* position: absolute;
+  right: 0;
+  bottom: -60px; */
+  padding: 10px;
+  height: 50px;
+  width: 150px;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  background-color: bisque;
+
+  &:hover {
+    border-color: #646cff;
+  }
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
 `;

@@ -16,7 +16,6 @@ const ShopList = ({ shops, setProducts, order }) => {
 
   return (
     <ShopContainer>
-      <h2>Choose your shop</h2>
       <ul>
         {shops.map((shop) => (
           <ShopListItem

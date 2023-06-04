@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ShopContainer = styled.div`
   padding: 10px;
+  margin-right: 15px;
   width: 300px;
   overflow-y: scroll;
   border: 1px solid white;

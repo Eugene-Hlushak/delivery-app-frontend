@@ -2,7 +2,12 @@ import { useState, useEffect, useContext } from "react";
 import { OrderContext } from "../../App";
 import ShopList from "../../components/ShopList/ShopList";
 import ProductsList from "../../components/ProductsList/ProductsList";
-import { PageContainer, ResetButton } from "./ShopPage.styled";
+import {
+  PageContainer,
+  ResetButton,
+  Container,
+  TitleContainer,
+} from "./ShopPage.styled";
 import { getShops } from "../../../services/getShops";
 
 const ShopPage = () => {
@@ -30,9 +35,12 @@ const ShopPage = () => {
   };
 
   return (
-    <div>
-      <PageContainer>
+    <PageContainer>
+      <TitleContainer>
+        <h2>What do yo prefer today?</h2>
         <ResetButton onClick={resetCart}>Reset cart</ResetButton>
+      </TitleContainer>
+      <Container>
         <ShopList shops={shops} setProducts={setProducts} order={order} />
         <ProductsList
           products={products}
@@ -40,8 +48,8 @@ const ShopPage = () => {
           setOrder={setOrder}
           order={order}
         />
-      </PageContainer>
-    </div>
+      </Container>
+    </PageContainer>
   );
 };
 export default ShopPage;

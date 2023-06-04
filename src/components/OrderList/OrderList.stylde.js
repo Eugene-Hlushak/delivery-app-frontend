@@ -30,7 +30,7 @@ export const ImgThumb = styled.div`
   border-radius: 8px;
 `;
 
-export const AddProduct = styled.button`
+export const RemoveProduct = styled.button`
   padding: 10px;
   height: 50px;
   width: 100%;

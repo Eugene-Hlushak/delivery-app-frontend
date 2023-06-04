@@ -3,10 +3,11 @@ import { Formik, ErrorMessage } from "formik";
 import { object, string, number } from "yup";
 import { PropTypes } from "prop-types";
 import {
-  AddContactForm,
+  CustomerForm,
   FormInput,
   FormLabel,
   LabelTitle,
+  Submit,
 } from "./OrderForm.styled";
 import { sendOrder } from "../../../services/sendOrder";
 
@@ -42,7 +43,7 @@ const OrderForm = ({ order, totalPrice, setOrder }) => {
       validationSchema={validationSchema}
       onSubmit={submitOrder}
     >
-      <AddContactForm>
+      <CustomerForm>
         <FormLabel>
           <LabelTitle>Name</LabelTitle>
           <FormInput type="text" name="name" />
@@ -65,8 +66,8 @@ const OrderForm = ({ order, totalPrice, setOrder }) => {
           <ErrorMessage name="address" />
         </FormLabel>
 
-        <button type="submit">Submit</button>
-      </AddContactForm>
+        <Submit type="submit">Submit</Submit>
+      </CustomerForm>
     </Formik>
   );
 };

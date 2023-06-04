@@ -1,5 +1,6 @@
 import { PropTypes } from "prop-types";
 import OrderListItem from "./OrderListItem";
+import { List } from "./OrderList.stylde";
 const OrderList = ({ order, setOrder, getTotalPrice }) => {
   const quantityHandler = (e, id) => {
     const quantity = e.target.value;
@@ -22,7 +23,7 @@ const OrderList = ({ order, setOrder, getTotalPrice }) => {
   };
 
   return (
-    <ul>
+    <List>
       {order.map((product) => (
         <OrderListItem
           key={product._id}
@@ -31,7 +32,7 @@ const OrderList = ({ order, setOrder, getTotalPrice }) => {
           deleteProduct={deleteProduct}
         />
       ))}
-    </ul>
+    </List>
   );
 };
 OrderList.propTypes = {

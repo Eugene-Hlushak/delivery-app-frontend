@@ -6,7 +6,6 @@ import { useEffect } from "react";
 const ProductsList = ({ products, setProducts, setOrder, order }) => {
   useEffect(() => {
     const currentProducts = JSON.parse(localStorage.getItem("currentProducts"));
-    console.log("currentProducts in product list -->", currentProducts);
 
     if (currentProducts) setProducts(currentProducts);
   }, [setProducts]);

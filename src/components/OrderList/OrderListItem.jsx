@@ -1,10 +1,13 @@
 import { PropTypes } from "prop-types";
+import { ImgThumb, ProductCard, RemoveProduct } from "./OrderList.stylde";
 
 const OrderListItem = ({ product, deleteProduct, quantityHandler }) => {
   return (
     <li>
-      <div>
-        <img src="" alt="FOOD" />
+      <ProductCard>
+        <ImgThumb>
+          <img src="" alt="FOOD" />
+        </ImgThumb>
         <div>
           <p>{product.name}</p>
           <p>{product.price * product.quantity} uah</p>
@@ -17,15 +20,15 @@ const OrderListItem = ({ product, deleteProduct, quantityHandler }) => {
               }}
             />
           </label>
-          <button
+          <RemoveProduct
             onClick={() => {
               deleteProduct(product._id);
             }}
           >
             Delete
-          </button>
+          </RemoveProduct>
         </div>
-      </div>
+      </ProductCard>
     </li>
   );
 };

@@ -1,5 +1,5 @@
 import { PropTypes } from "prop-types";
-import { ProductCard, ImgThumb } from "./ProductsList.styled";
+import { ProductCard, ImgThumb, AddProduct } from "./ProductsList.styled";
 
 const ProductListItem = ({ product, setOrder, order }) => {
   const checkCart = (id) => {
@@ -24,7 +24,9 @@ const ProductListItem = ({ product, setOrder, order }) => {
         <div>
           <p>{product.name}</p>
           <p>{product.price} uah</p>
-          <button onClick={() => addToCart(product._id)}>Add to cart</button>
+          <AddProduct onClick={() => addToCart(product._id)}>
+            Add to cart
+          </AddProduct>
         </div>
       </ProductCard>
     </li>

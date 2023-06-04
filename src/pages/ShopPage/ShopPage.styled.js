@@ -1,24 +1,31 @@
 import styled from "styled-components";
 
 export const PageContainer = styled.div`
-  position: relative;
   margin-top: 80px;
-  display: flex;
-  gap: 10px;
 `;
-
+export const TitleContainer = styled.div`
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+`;
+export const Container = styled.div`
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+`;
 export const ResetButton = styled.button`
-  display: block;
+  padding: 10px;
   height: 50px;
-  border-radius: 8px;
+  width: 100px;
+  display: block;
+  border-radius: 4px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  background-color: bisque;
 
   &:hover {
     border-color: #646cff;

@@ -1,5 +1,5 @@
 import { PropTypes } from "prop-types";
-import { ProductCard } from "./ProductsList.styled";
+import { ProductCard, ImgThumb } from "./ProductsList.styled";
 
 const ProductListItem = ({ product, setOrder, order }) => {
   const checkCart = (id) => {
@@ -18,7 +18,9 @@ const ProductListItem = ({ product, setOrder, order }) => {
   return (
     <li>
       <ProductCard>
-        <img src="" alt={product.name} />
+        <ImgThumb>
+          <img src="" alt={product.name} />
+        </ImgThumb>
         <div>
           <p>{product.name}</p>
           <p>{product.price} uah</p>

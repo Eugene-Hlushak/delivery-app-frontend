@@ -1,24 +1,27 @@
 import { PropTypes } from "prop-types";
-import { ListItem } from "./ShopList.styled";
+import { ListItem, Shop } from "./ShopList.styled";
 import { getProductsByShop } from "../../../services/getProducts";
 
 const ShopListItem = ({ shop, setProducts, isDisabled }) => {
   const productsHandler = async (shopId) => {
     const products = await getProductsByShop(shopId);
+    console.log("products in shoplist -->", products);
     localStorage.setItem("currentProducts", JSON.stringify(products));
+    const currentProducts = JSON.parse(localStorage.getItem("currentProducts"));
+    console.log("currentProducts in shop list -->", currentProducts);
     setProducts(products);
   };
 
   return (
     <ListItem>
-      <button
+      <Shop
         disabled={isDisabled}
         onClick={() => {
           productsHandler(shop._id);
         }}
       >
         {shop.name}
-      </button>
+      </Shop>
     </ListItem>
   );
 };

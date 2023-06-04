@@ -11,8 +11,8 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   min-width: 320px;
   min-height: 100vh;
-    color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+   color: rgba(50, 44, 44, 0.87);
+  background-color: #ffab44;
   }
 
   code {

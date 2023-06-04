@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { OrderContext } from "../../App";
 import ShopList from "../../components/ShopList/ShopList";
 import ProductsList from "../../components/ProductsList/ProductsList";
-import { PageContainer } from "./ShopPage.styled";
+import { PageContainer, ResetButton } from "./ShopPage.styled";
 import { getShops } from "../../../services/getShops";
 
 const ShopPage = () => {
@@ -31,9 +31,8 @@ const ShopPage = () => {
 
   return (
     <div>
-      <h1>Shop</h1>
       <PageContainer>
-        <button onClick={resetCart}>Reset cart</button>
+        <ResetButton onClick={resetCart}>Reset cart</ResetButton>
         <ShopList shops={shops} setProducts={setProducts} order={order} />
         <ProductsList
           products={products}

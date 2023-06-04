@@ -1,19 +1,19 @@
-import { ProductsContainer } from "./ProductsList.styled";
+import { ProductsContainer, List } from "./ProductsList.styled";
 import { PropTypes } from "prop-types";
 import ProductListItem from "./ProductsListItem";
 import { useEffect } from "react";
 
-const currentProducts = JSON.parse(localStorage.getItem("currentProducts"));
-
 const ProductsList = ({ products, setProducts, setOrder, order }) => {
   useEffect(() => {
+    const currentProducts = JSON.parse(localStorage.getItem("currentProducts"));
+    console.log("currentProducts in product list -->", currentProducts);
+
     if (currentProducts) setProducts(currentProducts);
   }, [setProducts]);
 
   return (
     <ProductsContainer>
-      <h2>Products</h2>
-      <ul>
+      <List>
         {products.map((product) => (
           <ProductListItem
             key={product._id}
@@ -22,13 +22,14 @@ const ProductsList = ({ products, setProducts, setOrder, order }) => {
             order={order}
           />
         ))}
-      </ul>
+      </List>
     </ProductsContainer>
   );
 };
 ProductsList.propTypes = {
   products: PropTypes.array.isRequired,
-  setOrder: PropTypes.func.isRequired,
   order: PropTypes.array.isRequired,
+  setOrder: PropTypes.func.isRequired,
+  setProducts: PropTypes.func.isRequired,
 };
 export default ProductsList;

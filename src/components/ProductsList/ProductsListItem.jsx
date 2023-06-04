@@ -1,16 +1,13 @@
 import { PropTypes } from "prop-types";
-import { useState } from "react";
 import { ProductCard } from "./ProductsList.styled";
 
 const ProductListItem = ({ product, setOrder, order }) => {
   const checkCart = (id) => {
-    console.log(order);
     const check = order.find((item) => item._id === id);
     return check;
   };
   const addToCart = (id) => {
     const check = checkCart(id);
-    console.log("check", check);
     if (check) {
       return;
     }
@@ -35,6 +32,6 @@ const ProductListItem = ({ product, setOrder, order }) => {
 ProductListItem.propTypes = {
   product: PropTypes.object.isRequired,
   setOrder: PropTypes.func.isRequired,
-  order: PropTypes.object.isRequired,
+  order: PropTypes.array.isRequired,
 };
 export default ProductListItem;

@@ -25,15 +25,22 @@ const ShopPage = () => {
   }, []);
 
   const resetCart = () => {
+    localStorage.setItem("currentOrder", JSON.stringify([]));
     setOrder([]);
   };
+
   return (
     <div>
       <h1>Shop</h1>
       <PageContainer>
-        <button onClick={() => setOrder([])}>Reset cart</button>
-        <ShopList shops={shops} setProducts={setProducts} />
-        <ProductsList products={products} setOrder={setOrder} order={order} />
+        <button onClick={resetCart}>Reset cart</button>
+        <ShopList shops={shops} setProducts={setProducts} order={order} />
+        <ProductsList
+          products={products}
+          setProducts={setProducts}
+          setOrder={setOrder}
+          order={order}
+        />
       </PageContainer>
     </div>
   );

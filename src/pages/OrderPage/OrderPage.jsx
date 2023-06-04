@@ -18,6 +18,7 @@ const OrderPage = () => {
   const [totalPrice, setTotalPrice] = useState(() => countTotalPrice(order));
 
   useEffect(() => {
+    if (!currentOrder) return;
     if (currentOrder.length > 0) {
       setOrder(currentOrder);
     }

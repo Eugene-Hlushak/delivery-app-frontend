@@ -5,7 +5,7 @@ import { getProductsByShop } from "../../../services/getProducts";
 const ShopListItem = ({ shop, setProducts, isDisabled }) => {
   const productsHandler = async (shopId) => {
     const products = await getProductsByShop(shopId);
-    localStorage.setItem("currentProducts", JSON.stringify(products));
+    sessionStorage.setItem("currentProducts", JSON.stringify(products));
     setProducts(products);
   };
 

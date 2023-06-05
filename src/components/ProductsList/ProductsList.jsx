@@ -5,7 +5,9 @@ import { useEffect } from "react";
 
 const ProductsList = ({ products, setProducts, setOrder, order }) => {
   useEffect(() => {
-    const currentProducts = JSON.parse(localStorage.getItem("currentProducts"));
+    const currentProducts = JSON.parse(
+      sessionStorage.getItem("currentProducts")
+    );
 
     if (currentProducts) setProducts(currentProducts);
   }, [setProducts]);
